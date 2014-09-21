@@ -1,5 +1,6 @@
 (function(window) {
     'use strict';
+
     /**
      * User Timing API helpers
      * timing.getTimes();
@@ -10,14 +11,6 @@
             var timing = performance.timing;
             var api = {};
             
-            var mozFirstPaintTime = null;
-
-        	function mozPaintHandler() {
-        		window.removeEventListener('MozAfterPaint', mozPaintHandler);
-        		mozFirstPaintTime = new Date().getTime();
-        	}
-        	window.addEventListener('MozAfterPaint', mozPaintHandler, true);
-
             if (timing) {
                 for (var k in timing) {
                     if (timing.hasOwnProperty(k)) {
@@ -43,10 +36,10 @@
                     }
                     // Firefox
                     // This will use the first times after MozAfterPaint fires
-                    else if (window.performance.timing.navigationStart && typeof InstallTrigger !== 'undefined' & mozFirstPaintTime !== null) {
-                        api.firstPaint = window.performance.timing.navigationStart;
-                        api.firstPaintTime = mozFirstPaintTime - window.performance.timing.navigationStart;
-                    }
+                    //else if (window.performance.timing.navigationStart && typeof InstallTrigger !== 'undefined') {
+                    //    api.firstPaint = window.performance.timing.navigationStart;
+                    //    api.firstPaintTime = mozFirstPaintTime - window.performance.timing.navigationStart;
+                    //}
                 }
 
                 // Total time from start to load
