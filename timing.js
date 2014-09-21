@@ -8,7 +8,8 @@
     window.timing = window.timing || {
         /**
          * Outputs extended measurements using User Timing API
-         * @return Object measurements
+         * @param  Object opts Options (simple (bool) - opts out of full data view)
+         * @return Object      measurements
          */
         getTimes: function(opts) {
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
@@ -81,7 +82,7 @@
             return api;
         },
         /**
-         * Uses console.table() to print extended User Timing API measurements
+         * Uses console.table() to print a complete table of timing information
          */
         printTable: function(opts) {
             var table = [];
@@ -95,6 +96,9 @@
             });
             console.table(table);
         },
+        /**
+         * Uses console.table() to print a summary table of timing information
+         */
         printSimpleTable: function() {
             this.printTable({simple: true});
         }

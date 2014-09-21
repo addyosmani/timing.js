@@ -23,7 +23,7 @@ Get measurements:
 timing.getTimes();
 ```
 
-Print a simpe table of just timing information (uses `console.table()`):
+Print a summary table of measurements (uses `console.table()`):
 
 ```sh
 timing.printSimpleTable();
