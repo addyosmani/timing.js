@@ -6,6 +6,10 @@
      * timing.getTimes();
      **/
     window.timing = window.timing || {
+        /**
+         * Outputs extended measurements using User Timing API
+         * @return Object measurements
+         */
         getTimes: function() {
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
             var timing = performance.timing;
@@ -67,6 +71,20 @@
             }
 
             return api;
+        },
+        /**
+         * Uses console.table() to print extended User Timing API measurements
+         */
+        printTable: function() {
+            var table = [];
+            var data  = this.getTimes();
+            Object.keys(data).sort().forEach(function(k) {
+                table.push({
+                    label: k,
+                    time: data[k]
+                })
+            });
+            console.table(table);
         }
     };
 })(this);
