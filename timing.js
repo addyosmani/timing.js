@@ -18,12 +18,12 @@
                 }
 
                 // Time to first paint
-                if (api.firstPaint === null) {
+                if (api.firstPaint === undefined) {
                     // All times are relative times to the start time within the
                     // same objects
 
                     // Chrome
-                    if (!!window.chrome && window.chrome.loadTimes) {
+                    if (window.chrome && window.chrome.loadTimes) {
                         // Convert to ms
                         api.firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
                     }
