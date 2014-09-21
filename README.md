@@ -17,11 +17,22 @@ $ bower install timing-js
 
 ## Usage
 
+Get measurements:
+
 ```sh
 timing.getTimes();
 ```
 
-### Sample output
+Print a table of measurements with `console.table()`:
+
+```sh
+timing.printTable();
+```
+
+![](http://i.imgur.com/YXAWjwg.png)
+
+
+### Sample output of `timing.getTimes()`
 
 Chrome:
 
