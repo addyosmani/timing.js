@@ -1,7 +1,7 @@
 timing.js
 =========
 
-User Timing API measurement helpers
+> The User Timing API provides a mechanism you can use to instrument your web application to identify where your application is spending its time. Timing.js is a very small set of helpers for working with the data exposed by the API.
 
 ## Usage
 
