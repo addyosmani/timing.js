@@ -83,6 +83,7 @@
         },
         /**
          * Uses console.table() to print a complete table of timing information
+         * @param  Object opts Options (simple (bool) - opts out of full data view)
          */
         printTable: function(opts) {
             var table = [];
