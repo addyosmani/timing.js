@@ -104,4 +104,7 @@
             this.printTable({simple: true});
         }
     };
+
+    // By default, print the simple table
+    window.timing.printSimpleTable();
 })(this);

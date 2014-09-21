@@ -1,7 +1,7 @@
 timing.js
 =========
 
-> The User Timing API provides a mechanism you can use to instrument your web application to identify where your application is spending its time. Timing.js is a very small set of helpers for working with the data exposed by the API.
+> Timing.js is a small set of helpers for working with the User Timing API, used to help identify where your application is spending its time. Useful as a standalone script or DevTools Snippet.
 
 ## Features
 
@@ -16,6 +16,8 @@ $ bower install timing-js
 ```
 
 ## Usage
+
+By default, running the script will print out a summary table of measurements. The API for the script is as follows:
 
 Get measurements:
 
