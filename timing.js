@@ -28,8 +28,8 @@
                         api.firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
                     }
                     // IE
-                    else if (typeof api.msFirstPaint === 'number') {
-                        api.firstPaint = api.msFirstPaint;
+                    else if (typeof window.performance.timing.msFirstPaint === 'number') {
+                        api.firstPaint = window.performance.timing.msFirstPaint;
                     }
                     // Firefox
                     // This will use the first times after MozAfterPaint fires
