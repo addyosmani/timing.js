@@ -5,13 +5,13 @@ timing.js
 
 ## Installation
 
-```
-bower install timing.js
+```sh
+$ bower install timing.js
 ```
 
 ## Usage
 
-```js
+```sh
 timing.getTimes();
 ```
 
@@ -19,7 +19,7 @@ timing.getTimes();
 
 Chrome:
 
-```
+```javascript
 firstPaint: 1411307463455.813 // New
 firstPaintTime: 685.0390625 // New
 appcacheTime: 2
