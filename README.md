@@ -33,7 +33,11 @@ timing.printSimpleTable();
 
 ![](http://i.imgur.com/nytLWK4.png)
 
-Print a complete table of measurements:
+Also works in Firefox DevTools:
+
+![](http://i.imgur.com/jY3xHi3.png)
+
+Print a complete table of measurements (including rest of `window.performance`):
 
 ```sh
 timing.printTable();
