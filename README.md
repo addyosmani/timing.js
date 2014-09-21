@@ -23,21 +23,21 @@ Get measurements:
 timing.getTimes();
 ```
 
-Print a table of measurements with `console.table()`:
-
-```sh
-timing.printTable();
-```
-
-![](http://i.imgur.com/C9eRQe9.png)
-
-Print a simpe table of just timing information:
+Print a simpe table of just timing information (uses `console.table()`):
 
 ```sh
 timing.printSimpleTable();
 ```
 
 ![](http://i.imgur.com/nytLWK4.png)
+
+Print a complete table of measurements:
+
+```sh
+timing.printTable();
+```
+
+![](http://i.imgur.com/C9eRQe9.png)
 
 
 ### Sample output of `timing.getTimes()`
