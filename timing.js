@@ -10,33 +10,37 @@
          * Outputs extended measurements using User Timing API
          * @return Object measurements
          */
-        getTimes: function() {
+        getTimes: function(opts) {
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
             var timing = performance.timing;
             var api = {};
             
             if (timing) {
-                for (var k in timing) {
-                    if (timing.hasOwnProperty(k)) {
-                        api[k] = timing[k];
-                    }
+                if(opts && !opts.simple) {
+                    for (var k in timing) {
+                        if (timing.hasOwnProperty(k)) {
+                            api[k] = timing[k];
+                        }
+                    }                    
                 }
+
 
                 // Time to first paint
                 if (api.firstPaint === undefined) {
                     // All times are relative times to the start time within the
                     // same objects
+                    var firstPaint = 0;
 
                     // Chrome
                     if (window.chrome && window.chrome.loadTimes) {
                         // Convert to ms
-                        api.firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
-                        api.firstPaintTime = api.firstPaint - (window.chrome.loadTimes().startLoadTime*1000);
+                        firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
+                        api.firstPaintTime = firstPaint - (window.chrome.loadTimes().startLoadTime*1000);
                     }
                     // IE
                     else if (typeof window.performance.timing.msFirstPaint === 'number') {
-                        api.firstPaint = window.performance.timing.msFirstPaint;
-                        api.firstPaintTime = api.firstPaint - window.performance.timing.navigationStart;
+                        firstPaint = window.performance.timing.msFirstPaint;
+                        api.firstPaintTime = firstPaint - window.performance.timing.navigationStart;
                     }
                     // Firefox
                     // This will use the first times after MozAfterPaint fires
@@ -44,6 +48,9 @@
                     //    api.firstPaint = window.performance.timing.navigationStart;
                     //    api.firstPaintTime = mozFirstPaintTime - window.performance.timing.navigationStart;
                     //}
+                    if (opts && !opts.simple) {
+                        api.firstPaint = firstPaint;
+                    }
                 }
 
                 // Total time from start to load
@@ -75,16 +82,20 @@
         /**
          * Uses console.table() to print extended User Timing API measurements
          */
-        printTable: function() {
+        printTable: function(opts) {
             var table = [];
-            var data  = this.getTimes();
+            var data  = this.getTimes(opts);
             Object.keys(data).sort().forEach(function(k) {
                 table.push({
                     label: k,
-                    time: data[k]
+                    ms: data[k],
+                    s: +((data[k] / 1000).toFixed(2))
                 })
             });
             console.table(table);
+        },
+        printSimpleTable: function() {
+            this.printTable({simple: true});
         }
     };
 })(this);
