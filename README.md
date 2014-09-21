@@ -29,7 +29,7 @@ Print a table of measurements with `console.table()`:
 timing.printTable();
 ```
 
-![](http://i.imgur.com/YXAWjwg.png)
+![](http://i.imgur.com/fyonBKw.png)
 
 
 ### Sample output of `timing.getTimes()`
