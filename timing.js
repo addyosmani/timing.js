@@ -9,6 +9,14 @@
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
             var timing = performance.timing;
             var api = {};
+            
+            var mozFirstPaintTime = null;
+
+        	function mozPaintHandler() {
+        		window.removeEventListener('MozAfterPaint', mozPaintHandler);
+        		mozFirstPaintTime = new Date().getTime();
+        	}
+        	window.addEventListener('MozAfterPaint', mozPaintHandler, true);
 
             if (timing) {
                 for (var k in timing) {
@@ -26,15 +34,18 @@
                     if (window.chrome && window.chrome.loadTimes) {
                         // Convert to ms
                         api.firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
+                        api.firstPaintTime = api.firstPaint - (window.chrome.loadTimes().startLoadTime*1000);
                     }
                     // IE
                     else if (typeof window.performance.timing.msFirstPaint === 'number') {
                         api.firstPaint = window.performance.timing.msFirstPaint;
+                        api.firstPaintTime = api.firstPaint - window.performance.timing.navigationStart;
                     }
                     // Firefox
                     // This will use the first times after MozAfterPaint fires
-                    else if (window.performance.timing.navigationStart && typeof InstallTrigger !== 'undefined') {
+                    else if (window.performance.timing.navigationStart && typeof InstallTrigger !== 'undefined' & mozFirstPaintTime !== null) {
                         api.firstPaint = window.performance.timing.navigationStart;
+                        api.firstPaintTime = mozFirstPaintTime - window.performance.timing.navigationStart;
                     }
                 }
 
