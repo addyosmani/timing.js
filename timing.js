@@ -20,8 +20,12 @@
             }
             
             if (api.firstPaint === null) {
+                // All times are relative times to the start time within the
+                // same objects
+                
                 // Chrome
                 if (!!window.chrome && window.chrome.loadTimes) {
+                    // Convert to ms
                     api.firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
                 }
                 // IE
@@ -29,6 +33,7 @@
                     api.firstPaint = api.msFirstPaint;
                 }
                 // Firefox
+                // This will use the first times after MozAfterPaint fires
                 else if (window.performance.timing.navigationStart && typeof InstallTrigger !== 'undefined') {
                     api.firstPaint = window.performance.timing.navigationStart;
                 }
