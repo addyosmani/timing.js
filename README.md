@@ -29,7 +29,15 @@ Print a table of measurements with `console.table()`:
 timing.printTable();
 ```
 
-![](http://i.imgur.com/fyonBKw.png)
+![](http://i.imgur.com/C9eRQe9.png)
+
+Print a simpe table of just timing information:
+
+```sh
+timing.printSimpleTable();
+```
+
+![](http://i.imgur.com/nytLWK4.png)
 
 
 ### Sample output of `timing.getTimes()`
