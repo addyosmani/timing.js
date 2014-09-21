@@ -1,29 +1,26 @@
-(function () {
+(function() {
     'use strict';
     /**
      * Cross-browser Performance Timing measurements
      * Targeted at evergreen browsers.
-    **/
+     **/
     function getMeasurements() {
-        var performance = window.performance 
-        || window.webkitPerformance 
-        || window.msPerformance 
-        || window.mozPerformance;
+        var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
         var timing = performance.timing;
         var api = {};
-        
+
         if (timing) {
             for (var k in timing) {
                 if (timing.hasOwnProperty(k)) {
                     api[k] = timing[k];
                 }
             }
-            
+
             // Time to first paint
             if (api.firstPaint === null) {
                 // All times are relative times to the start time within the
                 // same objects
-                
+
                 // Chrome
                 if (!!window.chrome && window.chrome.loadTimes) {
                     // Convert to ms
@@ -39,7 +36,7 @@
                     api.firstPaint = window.performance.timing.navigationStart;
                 }
             }
-            
+
             // Total time from start to load
             api.loadTime = timing.loadEventEnd - timing.navigationStart;
             // Time spent constructing the DOM tree
@@ -47,9 +44,9 @@
             // Time consumed prepaing the new page
             api.readyStart = timing.fetchStart - timing.navigationStart;
             // Time spent during redirection
-            api.redirectTime = timing.redirectEnd  - timing.redirectStart;
+            api.redirectTime = timing.redirectEnd - timing.redirectStart;
             // AppCache
-            api.appcacheTime = timing.domainLookupStart  - timing.fetchStart;
+            api.appcacheTime = timing.domainLookupStart - timing.fetchStart;
             // Time spent unloading documents
             api.unloadEventTime = timing.unloadEventEnd - timing.unloadEventStart;
             // DNS query time
@@ -63,7 +60,7 @@
             // Load event time
             api.loadEventTime = timing.loadEventEnd - timing.loadEventStart;
         }
-        
+
         return api;
     }
 });
