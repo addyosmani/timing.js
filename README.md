@@ -1,0 +1,4 @@
+timing.js
+=========
+
+Performance timing.
