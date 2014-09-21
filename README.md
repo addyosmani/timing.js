@@ -9,7 +9,7 @@ timing.js
 timing.getTimes();
 ```
 
-Sample output:
+Sample output (Chrome):
 
 ```
 firstPaint: 1411307463455.813 // New
@@ -46,6 +46,14 @@ unloadEventEnd: 0
 unloadEventStart: 0
 unloadEventTime: 0 // New
 ```
+
+Firefox:
+
+![](http://i.imgur.com/Drr4A6B.png)
+
+IE 11:
+
+![](http://i.imgur.com/52qv9WO.png)
 
 ## License
 
