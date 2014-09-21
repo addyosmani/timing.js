@@ -13,6 +13,7 @@ Sample output (Chrome):
 
 ```
 firstPaint: 1411307463455.813 // New
+firstPaintTime: 685.0390625 // New
 appcacheTime: 2
 connectEnd: 1411307463185
 connectStart: 1411307463080
