@@ -3,13 +3,21 @@ timing.js
 
 > The User Timing API provides a mechanism you can use to instrument your web application to identify where your application is spending its time. Timing.js is a very small set of helpers for working with the data exposed by the API.
 
+## Installation
+
+```
+bower install timing.js
+```
+
 ## Usage
 
 ```js
 timing.getTimes();
 ```
 
-Sample output (Chrome):
+### Sample output
+
+Chrome:
 
 ```
 firstPaint: 1411307463455.813 // New
@@ -54,7 +62,7 @@ Firefox:
 
 IE 11:
 
-![](http://i.imgur.com/52qv9WO.png)
+![](http://i.imgur.com/ekVHk3P.png)
 
 ## License
 
