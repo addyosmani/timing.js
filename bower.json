@@ -1,0 +1,27 @@
+{
+  "name": "timing-js",
+  "main": "timing.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/addyosmani/timing.js",
+  "authors": [
+    "Addy Osmani <addyosmani@gmail.com>"
+  ],
+  "description": "User Timing API measurement helpers",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "timing",
+    "user-timing",
+    "user",
+    "timing"
+  ],
+  "license": "Apache-2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
