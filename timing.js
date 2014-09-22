@@ -15,7 +15,7 @@
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
             var timing = performance.timing;
             var api = {};
-            options = opts || {};
+            opts = opts || {};
             
             if (timing) {
                 if(opts && !opts.simple) {
