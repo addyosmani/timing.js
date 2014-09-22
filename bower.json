@@ -6,7 +6,7 @@
   "authors": [
     "Addy Osmani <addyosmani@gmail.com>"
   ],
-  "description": "User Timing API measurement helpers",
+  "description": "Navigation Timing API measurement helpers",
   "moduleType": [
     "globals"
   ],

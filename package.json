@@ -1,7 +1,7 @@
 {
   "name": "timing.js",
   "version": "1.0.1",
-  "description": "User Timing API measurement helpers",
+  "description": "Navigation Timing API measurement helpers",
   "main": "timing.js",
   "scripts": {
     "jshint": "jshint *.js"

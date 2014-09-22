@@ -6,12 +6,12 @@
     'use strict';
 
     /**
-     * User Timing API helpers
+     * Navigation Timing API helpers
      * timing.getTimes();
      **/
     window.timing = window.timing || {
         /**
-         * Outputs extended measurements using User Timing API
+         * Outputs extended measurements using Navigation Timing API
          * @param  Object opts Options (simple (bool) - opts out of full data view)
          * @return Object      measurements
          */

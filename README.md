@@ -1,7 +1,7 @@
 timing.js
 =========
 
-> Timing.js is a small set of helpers for working with the User Timing API to identify where your application is spending its time. Useful as a standalone script, DevTools Snippet or bookmarklet.
+> Timing.js is a small set of helpers for working with the Navigation Timing API to identify where your application is spending its time. Useful as a standalone script, DevTools Snippet or bookmarklet.
 
 ## Features
 
