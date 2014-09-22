@@ -49,7 +49,7 @@ Print a summary table of measurements (uses [console.table()](https://plus.googl
 timing.printSimpleTable();
 ```
 
-![](http://i.imgur.com/nytLWK4.png)
+![](http://i.imgur.com/zjEST62.png)
 
 Also works in Firefox DevTools:
 
