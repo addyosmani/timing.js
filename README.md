@@ -1,7 +1,7 @@
 timing.js
 =========
 
-> Timing.js is a small set of helpers for working with the Navigation Timing API to identify where your application is spending its time. Useful as a standalone script, DevTools Snippet or bookmarklet.
+> Timing.js is a small set of helpers for working with the [Navigation Timing API](https://developer.mozilla.org/en-US/docs/Navigation_timing) to identify where your application is spending its time. Useful as a standalone script, DevTools Snippet or bookmarklet.
 
 ## Features
 
@@ -43,7 +43,7 @@ Get measurements:
 timing.getTimes();
 ```
 
-Print a summary table of measurements (uses [console.table()](https://plus.sandbox.google.com/+AddyOsmani/posts/PmTC5wwJVEc)):
+Print a summary table of measurements (uses [console.table()](https://plus.google.com/+AddyOsmani/posts/PmTC5wwJVEc)):
 
 ```sh
 timing.printSimpleTable();
