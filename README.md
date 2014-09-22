@@ -43,7 +43,7 @@ Get measurements:
 timing.getTimes();
 ```
 
-Print a summary table of measurements (uses `console.table()`):
+Print a summary table of measurements (uses [console.table()](https://plus.sandbox.google.com/+AddyOsmani/posts/PmTC5wwJVEc)):
 
 ```sh
 timing.printSimpleTable();
