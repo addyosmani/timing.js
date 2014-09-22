@@ -15,7 +15,7 @@
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
             var timing = performance.timing;
             var api = {};
-            var opts = opts || {};
+            options = opts || {};
             
             if (timing) {
                 if(opts && !opts.simple) {
@@ -93,7 +93,7 @@
                     label: k,
                     ms: data[k],
                     s: +((data[k] / 1000).toFixed(2))
-                })
+                });
             });
             console.table(table);
         },
