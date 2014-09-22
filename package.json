@@ -1,0 +1,20 @@
+{
+  "name": "timing.js",
+  "version": "1.0.0",
+  "description": "User Timing API measurement helpers",
+  "main": "timing.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/addyosmani/timing.js"
+  },
+  "keywords": [
+    "user-timing",
+    "user",
+    "timing"
+  ],
+  "author": "Addy Osmani",
+  "bugs": {
+    "url": "https://github.com/addyosmani/timing.js/issues"
+  },
+  "homepage": "https://github.com/addyosmani/timing.js"
+}

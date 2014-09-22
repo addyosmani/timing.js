@@ -16,7 +16,6 @@
     "user",
     "timing"
   ],
-  "license": "Apache-2",
   "ignore": [
     "**/.*",
     "node_modules",
