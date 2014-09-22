@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "User Timing API measurement helpers",
   "main": "timing.js",
+  "scripts": {
+    "jshint": "jshint *.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/addyosmani/timing.js"
@@ -16,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/addyosmani/timing.js/issues"
   },
-  "homepage": "https://github.com/addyosmani/timing.js"
+  "homepage": "https://github.com/addyosmani/timing.js",
+  "devDependencies": {
+    "jshint": "^2.5.6"
+  }
 }
