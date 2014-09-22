@@ -90,14 +90,13 @@
          * @param  Object opts Options (simple (bool) - opts out of full data view)
          */
         printTable: function(opts) {
-            var table = [];
+            var table = {};
             var data  = this.getTimes(opts);
             Object.keys(data).sort().forEach(function(k) {
-                table.push({
-                    label: k,
+                table[k] = {
                     ms: data[k],
                     s: +((data[k] / 1000).toFixed(2))
-                });
+                };
             });
             console.table(table);
         },
