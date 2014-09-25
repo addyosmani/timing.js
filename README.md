@@ -51,7 +51,7 @@ timing.printSimpleTable();
 
 ![](http://i.imgur.com/zjEST62.png)
 
-Also works in Firefox DevTools:
+Also works in Firefox DevTools (Firefox Nightly only for now):
 
 ![](http://i.imgur.com/jY3xHi3.png)
 
