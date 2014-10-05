@@ -1,9 +1,46 @@
 /**
- * Timing.js 1.0.1
+ * Timing.js 1.1.0
  * Copyright 2014 Addy Osmani
  */
 (function(window) {
     'use strict';
+
+    var TIMING_PROPERTIES_IN_ORDER = [
+        'navigationStart',
+        'unloadEventStart',
+        'unloadEventEnd',
+        'unloadEventTime',
+        'redirectStart',
+        'redirectEnd',
+        'redirectTime',
+        'fetchStart',
+        'readyStart',
+        'domainLookupStart',
+        'appcacheTime',
+        'domainLookupEnd',
+        'lookupDomainTime',
+        'connectStart',
+        'connectEnd',
+        'connectTime',
+        'secureConnectionStart',
+        'requestStart',
+        'responseStart',
+        'responseEnd',
+        'requestTime',
+        'domLoading',
+        'domInteractive',
+        'initDomTreeTime',
+        'firstPaint',
+        'firstPaintTime',
+        'domContentLoadedEventStart',
+        'domContentLoadedEventEnd',
+        'domComplete',
+        'domReadyTime',
+        'loadEventStart',
+        'loadEventEnd',
+        'loadEventTime',
+        'loadTime'
+    ];
 
     /**
      * Navigation Timing API helpers
@@ -20,14 +57,14 @@
             var timing = performance.timing;
             var api = {};
             opts = opts || {};
-            
+
             if (timing) {
                 if(opts && !opts.simple) {
                     for (var k in timing) {
                         if (timing.hasOwnProperty(k)) {
                             api[k] = timing[k];
                         }
-                    }                    
+                    }
                 }
 
 
@@ -105,6 +142,29 @@
          */
         printSimpleTable: function() {
             this.printTable({simple: true});
+        },
+        /**
+         * Uses console.table() to print a complete, ordered summary table of timing information
+         */
+        printTableInOrder: function(opts) {
+            var table = [];
+            var data  = this.getTimes(opts);
+            TIMING_PROPERTIES_IN_ORDER.map(function(prop) {
+                if(prop in data) {
+                    table.push({
+                        label: prop,
+                        ms: data[prop],
+                        s: +((data[prop] / 1000).toFixed(2))
+                    });
+                }
+            });
+            console.table(table);
+        },
+        /**
+         * Uses console.table() to print a simple, ordered summary table of timing information
+         */
+        printSimpleTableInOrder: function() {
+            this.printTableInOrder({simple: true});
         }
     };
 
