@@ -1,5 +1,5 @@
 /**
- * Timing.js 1.0.1
+ * Timing.js 1.0.3
  * Copyright 2014 Addy Osmani
  */
 (function(window) {
