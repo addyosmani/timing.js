@@ -17,6 +17,12 @@
          */
         getTimes: function(opts) {
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
+            
+            if (performance === undefined) {
+                console.log('Unfortunately, your browser does not support the Navigation Timing API');
+                return;
+            }
+
             var timing = performance.timing;
             var api = {};
             opts = opts || {};
