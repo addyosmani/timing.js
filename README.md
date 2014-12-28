@@ -18,7 +18,7 @@ Download the [latest](https://github.com/addyosmani/timing.js/archive/master.zip
 ### Bookmarklet:
 
 ```javascript
-javascript:(function(c){c.timing=c.timing||{getTimes:function(e){var a=(c.performance||c.webkitPerformance||c.msPerformance||c.mozPerformance).timing,b={};e=e||{};if(a){if(e&&!e.simple)for(var d in a)a.hasOwnProperty(d)&&(b[d]=a[d]);void 0===b.firstPaint&&(d=0,c.chrome&&c.chrome.loadTimes?(d=1E3*c.chrome.loadTimes().firstPaintTime,b.firstPaintTime=d-1E3*c.chrome.loadTimes().startLoadTime):"number"===typeof c.performance.timing.msFirstPaint&&(d=c.performance.timing.msFirstPaint,b.firstPaintTime=d-c.performance.timing.navigationStart),e&&!e.simple&&(b.firstPaint=d));b.loadTime=a.loadEventEnd-a.navigationStart;b.domReadyTime=a.domComplete-a.domInteractive;b.readyStart=a.fetchStart-a.navigationStart;b.redirectTime=a.redirectEnd-a.redirectStart;b.appcacheTime=a.domainLookupStart-a.fetchStart;b.unloadEventTime=a.unloadEventEnd-a.unloadEventStart;b.lookupDomainTime=a.domainLookupEnd-a.domainLookupStart;b.connectTime=a.connectEnd-a.connectStart;b.requestTime=a.responseEnd-a.requestStart;b.initDomTreeTime=a.domInteractive-a.responseEnd;b.loadEventTime=a.loadEventEnd-a.loadEventStart}return b},printTable:function(c){var a={},b=this.getTimes(c);Object.keys(b).sort().forEach(function(c){a[c]={ms:b[c],s:+(b[c]/1E3).toFixed(2)}});console.table(a)},printSimpleTable:function(){this.printTable({simple:!0})}};return timing.printSimpleTable()})(this);
+javascript:(function(window){"use strict";window.timing=window.timing||{getTimes:function(opts){var performance=window.performance||window.webkitPerformance||window.msPerformance||window.mozPerformance;if(performance===undefined){console.log("Unfortunately, your browser does not support the Navigation Timing API");return}var timing=performance.timing;var api={};opts=opts||{};if(timing){if(opts&&!opts.simple){for(var k in timing){if(timing.hasOwnProperty(k)){api[k]=timing[k]}}}if(api.firstPaint===undefined){var firstPaint=0;if(window.chrome&&window.chrome.loadTimes){firstPaint=window.chrome.loadTimes().firstPaintTime*1e3;api.firstPaintTime=firstPaint-window.chrome.loadTimes().startLoadTime*1e3}else if(typeof window.performance.timing.msFirstPaint==="number"){firstPaint=window.performance.timing.msFirstPaint;api.firstPaintTime=firstPaint-window.performance.timing.navigationStart}if(opts&&!opts.simple){api.firstPaint=firstPaint}}api.loadTime=timing.loadEventEnd-timing.navigationStart;api.domReadyTime=timing.domComplete-timing.domInteractive;api.readyStart=timing.fetchStart-timing.navigationStart;api.redirectTime=timing.redirectEnd-timing.redirectStart;api.appcacheTime=timing.domainLookupStart-timing.fetchStart;api.unloadEventTime=timing.unloadEventEnd-timing.unloadEventStart;api.lookupDomainTime=timing.domainLookupEnd-timing.domainLookupStart;api.connectTime=timing.connectEnd-timing.connectStart;api.requestTime=timing.responseEnd-timing.requestStart;api.initDomTreeTime=timing.domInteractive-timing.responseEnd;api.loadEventTime=timing.loadEventEnd-timing.loadEventStart}return api},printTable:function(opts){var table={};var data=this.getTimes(opts);Object.keys(data).sort().forEach(function(k){table[k]={ms:data[k],s:+(data[k]/1e3).toFixed(2)}});console.table(table)},printSimpleTable:function(){this.printTable({simple:true})}};return window.timing.printSimpleTable()})(this);
 ```
 
 ### Bower:
@@ -112,3 +112,11 @@ Firefox:
 IE 11:
 
 ![](http://i.imgur.com/ekVHk3P.png)
+
+## Build
+
+Run `npm install` to install necessary dependencies for building the library. Check that `npm run jshint` doesn't throw any exceptions and then run `npm run minify` to minify.
+
+## License
+
+Released under an MIT license.
