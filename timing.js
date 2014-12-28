@@ -115,6 +115,6 @@
     };
 
     // By default, print the simple table
-    return timing.printSimpleTable();
+    return window.timing.printSimpleTable();
 
 })(this);
