@@ -97,7 +97,7 @@
          */
         printTable: function(opts) {
             var table = {};
-            var data  = this.getTimes(opts);
+            var data  = this.getTimes(opts) || {};
             Object.keys(data).sort().forEach(function(k) {
                 table[k] = {
                     ms: data[k],
