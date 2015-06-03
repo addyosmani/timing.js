@@ -17,7 +17,7 @@
          */
         getTimes: function(opts) {
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
-            
+
             if (performance === undefined) {
                 console.log('Unfortunately, your browser does not support the Navigation Timing API');
                 return;
@@ -26,14 +26,14 @@
             var timing = performance.timing;
             var api = {};
             opts = opts || {};
-            
+
             if (timing) {
                 if(opts && !opts.simple) {
                     for (var k in timing) {
                         if (timing.hasOwnProperty(k)) {
                             api[k] = timing[k];
                         }
-                    }                    
+                    }
                 }
 
 
@@ -66,7 +66,7 @@
                 }
 
                 // Total time from start to load
-                api.loadTime = timing.loadEventEnd - timing.navigationStart;
+                api.loadTime = timing.loadEventEnd - timing.fetchStart;
                 // Time spent constructing the DOM tree
                 api.domReadyTime = timing.domComplete - timing.domInteractive;
                 // Time consumed prepaing the new page
