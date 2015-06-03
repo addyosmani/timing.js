@@ -69,7 +69,7 @@
                 api.loadTime = timing.loadEventEnd - timing.fetchStart;
                 // Time spent constructing the DOM tree
                 api.domReadyTime = timing.domComplete - timing.domInteractive;
-                // Time consumed prepaing the new page
+                // Time consumed preparing the new page
                 api.readyStart = timing.fetchStart - timing.navigationStart;
                 // Time spent during redirection
                 api.redirectTime = timing.redirectEnd - timing.redirectStart;
