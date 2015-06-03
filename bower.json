@@ -1,7 +1,7 @@
 {
   "name": "timing-js",
   "main": "timing.js",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "homepage": "https://github.com/addyosmani/timing.js",
   "authors": [
     "Addy Osmani <addyosmani@gmail.com>"

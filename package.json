@@ -1,10 +1,10 @@
 {
   "name": "timing.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Navigation Timing API measurement helpers",
   "main": "timing.js",
   "scripts": {
-    "jshint": "jshint *.js",
+    "jshint": "jshint timing.js",
     "minify": "uglifyjs timing.js -o timing.min.js"
   },
   "repository": {
