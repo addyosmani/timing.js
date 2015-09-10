@@ -1,28 +1,30 @@
 {
-  "name": "timing.js",
+  "name": "node-timing.js",
   "version": "1.0.4",
-  "description": "Navigation Timing API measurement helpers",
+  "description": "Node-friendly Navigation Timing API measurement helpers",
   "main": "timing.js",
   "scripts": {
-    "jshint": "jshint timing.js",
-    "minify": "uglifyjs timing.js -o timing.min.js"
+    "jshint": "jshint timing.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/addyosmani/timing.js"
+    "url": "https://github.com/droogans/node-timing.js"
   },
   "keywords": [
     "user-timing",
     "user",
-    "timing"
+    "timing",
+    "node"
   ],
   "author": "Addy Osmani",
   "bugs": {
-    "url": "https://github.com/addyosmani/timing.js/issues"
+    "url": "https://github.com/droogans/node-timing.js/issues"
   },
-  "homepage": "https://github.com/addyosmani/timing.js",
+  "homepage": "https://github.com/droogans/node-timing.js",
   "devDependencies": {
+    "chai": "^3.2.0",
     "jshint": "^2.5.6",
-    "uglify-js": "^2.4.16"
+    "mocha": "^2.3.2",
+    "protractor": "^2.2.0"
   }
 }
