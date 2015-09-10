@@ -11,23 +11,22 @@ $ npm install node-timing.js
 
 ## Usage
 
-By default, running the script will return an object of measurements. The API for the script is as follows:
-
-Get measurements:
-
 ```js
+var timing = require('node-timing.js');
+
 describe('node-timing.js', function () {
     var timings;
+    var threshold = 2000;
 
     before(function () {
         browser.get('/');
-        browser.driver.executeScript(require('../timing').getTimes).then(function (times) {
+        browser.driver.executeScript(timing.getTimes).then(function (times) {
             timings = times;
         });
     });
 
-    it('should have some timings', function () {
-        expect(timings.loadTime).to.be.below(2000 /* milliseconds */);
+    it('should load the page faster than ' + threshold + 'ms', function () {
+        expect(timings.loadTime).to.be.below(threshold);
     });
 
 });
