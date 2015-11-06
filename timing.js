@@ -15,8 +15,8 @@ module.exports = function() {
     return
   }
 
-  let timing = performance.timing
-  let api = {}
+  const timing = performance.timing
+  let api = Object.create(null)
 
   for (let k in timing) {
     if (k !== 'toJSON') {
