@@ -19,7 +19,7 @@ module.exports = function() {
   let api = {}
 
   for (let k in timing) {
-    if (timing.hasOwnProperty(k)) {
+    if (k !== 'toJSON') {
       api[k] = timing[k]
     }
   }
