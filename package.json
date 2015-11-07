@@ -1,11 +1,10 @@
 {
-  "name": "timing.js",
-  "version": "1.0.4",
-  "description": "Navigation Timing API measurement helpers",
+  "name": "timing_commonjs",
+  "version": "0.0.3",
+  "description": "timing.js packaged for CommonJS",
   "main": "timing.js",
   "scripts": {
-    "jshint": "jshint timing.js",
-    "minify": "uglifyjs timing.js -o timing.min.js"
+    "test": "eslint timing.js"
   },
   "repository": {
     "type": "git",
@@ -14,15 +13,15 @@
   "keywords": [
     "user-timing",
     "user",
-    "timing"
+    "timing",
+    "CommonJS"
   ],
   "author": "Addy Osmani",
   "bugs": {
-    "url": "https://github.com/addyosmani/timing.js/issues"
+    "url": "https://github.com/121Room/timing.js/issues"
   },
-  "homepage": "https://github.com/addyosmani/timing.js",
+  "homepage": "https://github.com/121Room/timing.js",
   "devDependencies": {
-    "jshint": "^2.5.6",
-    "uglify-js": "^2.4.16"
+    "eslint": "^1.8.0"
   }
 }
