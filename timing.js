@@ -67,7 +67,7 @@
 
                 // Total time from start to load
                 api.loadTime = timing.loadEventEnd - timing.fetchStart;
-                // Time spent constructing the DOM tree
+                // Time completion of the DOM loading
                 api.domReadyTime = timing.domComplete - timing.domInteractive;
                 // Time consumed preparing the new page
                 api.readyStart = timing.fetchStart - timing.navigationStart;
@@ -83,10 +83,12 @@
                 api.connectTime = timing.connectEnd - timing.connectStart;
                 // Time spent during the request
                 api.requestTime = timing.responseEnd - timing.requestStart;
-                // Request to completion of the DOM loading
+                // Time spent constructing the DOM tree
                 api.initDomTreeTime = timing.domInteractive - timing.responseEnd;
                 // Load event time
                 api.loadEventTime = timing.loadEventEnd - timing.loadEventStart;
+                // Dom can interacting time
+                api.interactingTime = timing.domContentLoadedEventEnd - timing.navigationStart
             }
 
             return api;
