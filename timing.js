@@ -47,8 +47,8 @@ module.exports = function() {
 
   // Total time from start to load
   api.loadTime = timing.loadEventEnd - timing.fetchStart
-  // Time spent constructing the DOM tree
-  api.domReadyTime = timing.domInteractive - timing.domLoading
+  // Time completion of the DOM loading
+  api.domReadyTime = timing.domComplete - timing.domInteractive
   // Time consumed preparing the new page
   api.readyStart = timing.fetchStart - timing.navigationStart
   // Time spent during redirection
@@ -63,7 +63,7 @@ module.exports = function() {
   api.connectTime = timing.connectEnd - timing.connectStart
   // Time spent during the request
   api.requestTime = timing.responseEnd - timing.requestStart
-  // Request to completion of the DOM loading
+  // Time spent constructing the DOM tree
   api.initDomTreeTime = timing.domInteractive - timing.responseEnd
   // Load event time
   api.loadEventTime = timing.loadEventEnd - timing.loadEventStart
