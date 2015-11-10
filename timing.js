@@ -19,8 +19,7 @@
             var performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
 
             if (performance === undefined) {
-                console.log('Unfortunately, your browser does not support the Navigation Timing API');
-                return;
+                return false;
             }
 
             var timing = performance.timing;
@@ -113,8 +112,5 @@
             this.printTable({simple: true});
         }
     };
-
-    // By default, print the simple table
-    return window.timing.printSimpleTable();
 
 })(this);
