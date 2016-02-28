@@ -29,8 +29,10 @@
             if (timing) {
                 if(opts && !opts.simple) {
                     for (var k in timing) {
-                        if (timing.hasOwnProperty(k)) {
-                            api[k] = timing[k];
+                        // hasOwnProperty does not work because properties are
+                        // added by modifying the object prototype
+                        if(isNumeric(timing[k])) {
+                            api[k] = parseFloat(timing[k]);
                         }
                     }
                 }
@@ -112,5 +114,9 @@
             this.printTable({simple: true});
         }
     };
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
 
 })(this);
