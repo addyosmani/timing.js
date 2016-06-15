@@ -119,4 +119,9 @@
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
 
-})(this);
+    // Expose as a commonjs module
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = window.timing;
+    }
+
+})(typeof window !== 'undefined' ? window : {});
