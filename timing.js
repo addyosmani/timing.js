@@ -48,7 +48,7 @@
                     if (window.chrome && window.chrome.loadTimes) {
                         // Convert to ms
                         firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
-                        api.firstPaintTime = firstPaint - (window.chrome.loadTimes().startLoadTime*1000);
+                        api.firstPaintTime = firstPaint - window.performance.timing.navigationStart;
                     }
                     // IE
                     else if (typeof window.performance.timing.msFirstPaint === 'number') {
