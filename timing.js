@@ -1,6 +1,6 @@
 /**
- * Timing.js 1.0.4
- * Copyright 2015 Addy Osmani
+ * Timing.js 1.2.0
+ * Copyright 2016 Addy Osmani
  */
 (function(window) {
     'use strict';
