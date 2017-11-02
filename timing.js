@@ -48,18 +48,18 @@
                     if (window.chrome && window.chrome.loadTimes) {
                         // Convert to ms
                         firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
-                        api.firstPaintTime = firstPaint - window.performance.timing.navigationStart;
+                        api.firstPaintTime = firstPaint - timing.navigationStart;
                     }
                     // IE
-                    else if (typeof window.performance.timing.msFirstPaint === 'number') {
-                        firstPaint = window.performance.timing.msFirstPaint;
-                        api.firstPaintTime = firstPaint - window.performance.timing.navigationStart;
+                    else if (typeof timing.msFirstPaint === 'number') {
+                        firstPaint = timing.msFirstPaint;
+                        api.firstPaintTime = firstPaint - timing.navigationStart;
                     }
                     // Firefox
                     // This will use the first times after MozAfterPaint fires
-                    //else if (window.performance.timing.navigationStart && typeof InstallTrigger !== 'undefined') {
-                    //    api.firstPaint = window.performance.timing.navigationStart;
-                    //    api.firstPaintTime = mozFirstPaintTime - window.performance.timing.navigationStart;
+                    //else if (timing.navigationStart && typeof InstallTrigger !== 'undefined') {
+                    //    api.firstPaint = timing.navigationStart;
+                    //    api.firstPaintTime = mozFirstPaintTime - timing.navigationStart;
                     //}
                     if (opts && !opts.simple) {
                         api.firstPaint = firstPaint;
