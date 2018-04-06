@@ -50,7 +50,7 @@
                         api.firstPaintTime = firstPaint - timing.navigationStart;
                     } else if (performance.getEntriesByName !== undefined) {
                         var firstPaintTime = performance.getEntriesByName('first-paint')[0].startTime;
-                        firstPaint = timing.responseEnd + firstPaintTime
+                        firstPaint = timing.responseEnd + firstPaintTime;
                         api.firstPaintTime = firstPaintTime;
                     }
                     if (opts && !opts.simple) {
