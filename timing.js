@@ -49,9 +49,12 @@
                         firstPaint = timing.msFirstPaint;
                         api.firstPaintTime = firstPaint - timing.navigationStart;
                     } else if (performance.getEntriesByName !== undefined) {
-                        var firstPaintTime = performance.getEntriesByName('first-paint')[0].startTime;
-                        firstPaint = timing.responseEnd + firstPaintTime;
-                        api.firstPaintTime = firstPaintTime;
+                        var firstPaintPerformanceEntry = performance.getEntriesByName('first-paint');
+                        if (firstPaintPerformanceEntry.length === 1) {
+                            var firstPaintTime = firstPaintPerformanceEntry[0].startTime;
+                            firstPaint = timing.responseEnd + firstPaintTime;
+                            api.firstPaintTime = firstPaintTime;
+                        }
                     }
                     if (opts && !opts.simple) {
                         api.firstPaint = firstPaint;
