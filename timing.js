@@ -52,7 +52,7 @@
                         var firstPaintPerformanceEntry = performance.getEntriesByName('first-paint');
                         if (firstPaintPerformanceEntry.length === 1) {
                             var firstPaintTime = firstPaintPerformanceEntry[0].startTime;
-                            firstPaint = timing.responseEnd + firstPaintTime;
+                            firstPaint = performance.timeOrigin + firstPaintTime;
                             api.firstPaintTime = firstPaintTime;
                         }
                     }
