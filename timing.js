@@ -44,23 +44,18 @@
                     // same objects
                     var firstPaint = 0;
 
-                    // Chrome
-                    if (window.chrome && window.chrome.loadTimes) {
-                        // Convert to ms
-                        firstPaint = window.chrome.loadTimes().firstPaintTime * 1000;
-                        api.firstPaintTime = firstPaint - timing.navigationStart;
-                    }
                     // IE
-                    else if (typeof timing.msFirstPaint === 'number') {
+                    if (typeof timing.msFirstPaint === 'number') {
                         firstPaint = timing.msFirstPaint;
                         api.firstPaintTime = firstPaint - timing.navigationStart;
+                    } else if (performance.getEntriesByName !== undefined) {
+                        var firstPaintPerformanceEntry = performance.getEntriesByName('first-paint');
+                        if (firstPaintPerformanceEntry.length === 1) {
+                            var firstPaintTime = firstPaintPerformanceEntry[0].startTime;
+                            firstPaint = performance.timeOrigin + firstPaintTime;
+                            api.firstPaintTime = firstPaintTime;
+                        }
                     }
-                    // Firefox
-                    // This will use the first times after MozAfterPaint fires
-                    //else if (timing.navigationStart && typeof InstallTrigger !== 'undefined') {
-                    //    api.firstPaint = timing.navigationStart;
-                    //    api.firstPaintTime = mozFirstPaintTime - timing.navigationStart;
-                    //}
                     if (opts && !opts.simple) {
                         api.firstPaint = firstPaint;
                     }
